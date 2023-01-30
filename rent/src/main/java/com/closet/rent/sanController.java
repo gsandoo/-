@@ -1,5 +1,13 @@
 package com.closet.rent;
 
-public class sanController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+public class sanController {
+	@RequestMapping
+	public String customerService() {
+		return "san/customerService";
+	} 
+	
 }

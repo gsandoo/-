@@ -1,5 +1,5 @@
 package com.closet.san;
 
-public class testDAO {
+public class ServiceDAO {
 
 }
