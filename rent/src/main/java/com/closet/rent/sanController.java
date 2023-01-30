@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class sanController {
-	@RequestMapping
-	public String customerService() {
+	
+	@RequestMapping("customerService.do")
+	 public String service() {
 		return "san/customerService";
-	} 
+	}
 	
 }
