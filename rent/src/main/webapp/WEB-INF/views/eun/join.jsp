@@ -8,5 +8,9 @@
 </head>
 <body>
 	<p>회원가입</p>
+	
+	<form method="post" action="<%=request.getContextPath() %>/join_form">
+		
+	</form>
 </body>
 </html>
