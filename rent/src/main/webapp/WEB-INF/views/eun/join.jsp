@@ -57,33 +57,33 @@
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text"></td>
+				<td><input type="text" name="mem_id"></td>
 			</tr>
 			
 			<tr>
 				<th>이름</th>
-				<td><input type="text"></td>
+				<td><input type="text" name="mem_name"></td>
 			</tr>
 			
 			<tr>
 				<th>닉네임</th>
-				<td><input type="text"></td>
+				<td><input type="text" name="mem_nick"></td>
 			</tr>
 			
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="text"></td>
+				<td><input type="text" name="mem_pwd"></td>
 			</tr>
 			
 			<tr>
 				<th>핸드폰번호</th>
-				<td><input type="number" placeholder="'-'를 제외한 숫자만 입력해주세요."></td>
+				<td><input type="number" name="mem_phone" placeholder="'-'를 제외한 숫자만 입력해주세요."></td>
 			</tr>
 			
 			<tr>
 				<th>주소</th>
 				<td>
-					<input type="text" id="sample6_postcode" placeholder="우편번호">
+					<input type="text" id="sample6_postcode" name="mem_addr" placeholder="우편번호">
 					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 					<input type="text" id="sample6_address" placeholder="주소"><br>
 					<input type="text" id="sample6_detailAddress" placeholder="상세주소">
@@ -91,7 +91,7 @@
 			</tr>
 			
 			<tr>
-				<td><input type="submit" value="가입하기"></td>
+				<td><button type="submit">가입하기</button></td>
 			</tr>
 		</table>
 	</form>
