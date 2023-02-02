@@ -7,7 +7,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.closet.eun.UserDAO" alias="UserDAO"/>
-		<typeAlias type="com.closet.san.ServiceDAO" alias="ServiceDAO"/>
+		<typeAlias type="com.closet.san.BoardDAO" alias="BoardDAO"/>
 	</typeAliases>
 	
 </configuration>

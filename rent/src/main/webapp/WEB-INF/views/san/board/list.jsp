@@ -20,7 +20,6 @@
 		</thead>
 		
 		<tbody>
-				
 			<c:forEach items='${list}' var ="list">
 				<tr>
 					<td>${list.bdNum}</td>
@@ -30,9 +29,6 @@
 					<td>${list.viewCount}</td>
 				<tr>
 			</c:forEach>
-			<c:if test="${empty list }">
-		         <h3>데이터 없음!</h3>
-	      	</c:if>
 		</tbody>
 	</table>
 </body>
