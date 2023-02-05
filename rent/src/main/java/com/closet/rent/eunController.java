@@ -20,10 +20,10 @@ public class eunController {
 	
 	@RequestMapping("/join.do")
 	public String join() {
-		return "eun/join";
+		return "eun/join"; // join.jsp ë¡œ ì´ë™ ì‹œì¼œì¤€ë‹¤
 	}
 	
-	@RequestMapping("/join_form.do")
+	@RequestMapping("/join_form.do") // 
 	public void joinForm(MemberDTO dto, HttpServletResponse response, HttpServletRequest request) throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		
@@ -33,12 +33,12 @@ public class eunController {
 		
 		if (check > 0) { 
 			out.println("<script>");
-			out.println("alert('°¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù!')");
+			out.println("alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!')");
 		    out.println("location.href='/'"); 
 		    out.println("</script>"); 
 		} else {
 		    out.println("<script>"); 
-		    out.println("alert('°¡ÀÔÁß ¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù.')");
+		    out.println("alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.')");
 		    out.println("history.back()"); 
 		    out.println("</script>"); 
 		}

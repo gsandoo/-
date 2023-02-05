@@ -8,7 +8,7 @@
 </head>
 <body>
 	<a href="<%=request.getContextPath() %>/join.do">회원가입</a>
-	<a href="<%=request.getContextPath() %>/join.do">산아도 내 폴더와서 링크 걸어! main.jsp</a>
+	<a href="<%=request.getContextPath() %>/list.do">고객센터</a>
 	
 </body>
 </html>
