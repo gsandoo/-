@@ -4,5 +4,15 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="UserDAO">
+<mapper namespace="BoardDAO">
+	<insert id="insertBoard" parameterType="com.closet.san.BoardDTO">
+INSERT INTO board VALUES( 
+			   (SELECT NVL(MAX(board.bdnum), 0) + 1 FROM board)
+               , #{bdTitle}
+               , #{content}
+               , #{writer}
+               , sysdate
+               , '0'
+               )	
+    </insert>
 </mapper>
