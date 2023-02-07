@@ -8,4 +8,8 @@
 	<insert id="insertMember" parameterType="com.closet.eun.MemberDTO">
 		insert into MEMBERLIST values(#{mem_id}, #{mem_name}, #{mem_nick}, #{mem_pwd}, #{mem_phone}, #{mem_addr}, sysdate)
 	</insert>
+	
+	<select id="getMember" parameterType="String" resultType="com.closet.eun.MemberDTO">
+		select * from MEMBERLIST where mem_id = #{id}
+	</select>
 </mapper>
