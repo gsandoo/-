@@ -5,8 +5,8 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="BoardDAO">
-	<insert id="insertBoard" parameterType="com.closet.san.BoardDTO">
-INSERT INTO board VALUES( 
+	<insert id="insert" parameterType="com.closet.san.BoardDTO">
+			INSERT INTO board VALUES( 
 			   (SELECT NVL(MAX(board.bdnum), 0) + 1 FROM board)
                , #{bdTitle}
                , #{content}
@@ -15,4 +15,44 @@ INSERT INTO board VALUES(
                , '0'
                )	
     </insert>
+    
+    
+    <resultMap type="BoardDTO" id="BoardMap">
+    	<result property="bdNum" column="bdNum"/>
+    	<result property="bdTitle" column="bdTitle"/>
+    	<result property="content" column="content"/>
+    	<result property="writer" column="writer"/>
+    	<result property="regDate" column="reg_Date"/>  
+    	<result property="viewCount" column="viewCount"/>  
+    </resultMap>
+    
+    <select id="selectList" resultMap="BoardMap" resultType="com.closet.san.BoardDTO">
+    	SELECT 
+    		bdNum,
+    		bdTitle,
+    		content,
+    		writer,
+    		reg_Date,
+    		viewCount
+    	FROM board
+    </select>
+    
+    <select id="selectOne"  resultType="com.closet.san.BoardDTO" parameterType="int">
+    	SELECT 
+    		bdNum,
+    		bdTitle,
+    		content,
+    		writer,
+    		reg_Date,
+    		viewCount
+    	FROM board
+    	WHERE bdNum = #{bdNum}    
+    </select>
+    
+    
+    <update id="update" parameterType="BoardDTO">
+    	UPDATE board
+    		SET  bdTitle = #{bdTitle}, content = #{content}
+			WHERE bdNum = #{bdNum}	
+    </update>
 </mapper>

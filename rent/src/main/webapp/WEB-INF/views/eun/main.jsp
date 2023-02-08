@@ -8,7 +8,7 @@
 </head>
 <body>
 	<a href="<%=request.getContextPath() %>/join.do">회원가입</a>
-	<a href="<%=request.getContextPath() %>/list.do">고객센터</a>
+	<a href="list.do">고객센터</a>
 	
 </body>
 </html>
