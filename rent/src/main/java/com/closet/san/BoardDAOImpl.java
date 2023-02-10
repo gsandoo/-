@@ -26,12 +26,6 @@ public class BoardDAOImpl implements BoardDAO {
 	private BoardBiz biz;
 
 
-	
-	
-
-
-
-
 	@Override
 	public List<BoardDTO> selectList() {
 		// TODO Auto-generated method stub
@@ -52,7 +46,15 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int delete(int bdNum) {
 		// TODO Auto-generated method stub
-		return 0;
+		int res = 0;
+		
+		try {
+			res = sqlSession.delete(NAMESPACE+"delete",bdNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return res;
 	}
 
 	

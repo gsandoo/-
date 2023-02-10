@@ -29,7 +29,7 @@
 			<tr>
 				<td colspan="2" align="right">
 					<input type="submit" value="글쓰기"/>
-					<input type="button" value="취소하기" onclick="location.href='serviceBoard.do'"/>
+					<input type="button" value="취소하기" onclick="location.href='list.do'"/>
 				</td>
 			</tr>
 		</table>

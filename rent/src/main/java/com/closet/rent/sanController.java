@@ -24,15 +24,8 @@ public class sanController {
 	@Autowired
 	private BoardDAO dao;
 	
-	
-	
 	@Autowired
 	private BoardBiz biz;
-	
-
-	
-	
-	
 	
 	
 	@RequestMapping("/list.do")
@@ -69,13 +62,13 @@ public class sanController {
 		
 		if(res > 0) {
 			out.println("<script>");
-			out.println("alert('글이 작성 되었습니다!')");
+			out.println("alert('article has been written!')");
 		    out.println("location.href='/'"); 
 		    out.println("</script>");
 		}else {
 			
 			out.println("<script>");
-			out.println("alert('글이 작성 되지 않았습니다!')");
+			out.println("alert('article has not been written!')");
 		    out.println("location.href='/'"); 
 		    out.println("</script>"); 
 		}
@@ -117,7 +110,31 @@ public class sanController {
 		
 						
 	}
+	
+	@RequestMapping("/delete.do")
+	public void delete(int bdNum,HttpServletResponse response) throws IOException {
+		logger.info("DELETE");
+		
+		PrintWriter out = response.getWriter();
 
+		int res = biz.delete(bdNum);
+
+		if(res > 0) {
+			out.println("<script>");
+			out.println("alert('article has been deleted!')");
+		    out.println("location.href='/'"); 
+		    out.println("</script>");
+		}else {
+			
+			out.println("<script>");
+			out.println("alert('article has not been deleted!')");
+		    out.println("location.href='/'"); 
+		    out.println("</script>"); 
+		}
+		
+	};
+
+	
 }
 
 

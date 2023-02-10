@@ -41,7 +41,7 @@ public class BoardBizImpl implements BoardBiz {
 	@Override
 	public int delete(int bdNum) {
 		// TODO Auto-generated method stub
-		return 0;
+		return dao.delete(bdNum);
 	}
 
 	

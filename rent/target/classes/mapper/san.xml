@@ -55,4 +55,12 @@
     		SET  bdTitle = #{bdTitle}, content = #{content}
 			WHERE bdNum = #{bdNum}	
     </update>
+    
+    <delete id="delete" parameterType="int">
+    	DELETE 
+    		FROM board
+    		WHERE bdNum = #{bdNum}
+    	
+    
+    </delete>
 </mapper>

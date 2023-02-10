@@ -2,6 +2,7 @@ package com.closet.san;
 
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -10,6 +11,7 @@ public class BoardDTO {
 	
 	private int bdNum;
 	private String bdTitle;
+	
 	private String content;
 	private String writer;
 	private String regDate;
