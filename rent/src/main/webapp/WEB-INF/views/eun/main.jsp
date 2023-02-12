@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="<%=request.getContextPath() %>/join.do">х╦©Ь╟║ют</a>
-	<a href="list.do">╟М╟╢╪╬ем</a>
-	
+	<a href="<%=request.getContextPath() %>/join.do">М ▄Л⌡░Й╟─Л·┘</a>
+
+	<a href="<%=request.getContextPath() %>/list.do">ЙЁ═Й╟²Л└╪М└╟</a>
+	<a href="<%=request.getContextPath() %>/login.do">К║°Й╥╦Л²╦</a>
+	<a href="<%=request.getContextPath() %>/logout.do">К║°Й╥╦Л∙└Л⌡┐</a>
+
 </body>
 </html>
