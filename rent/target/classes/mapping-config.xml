@@ -8,5 +8,9 @@
 	<typeAliases>
 		<typeAlias type="com.closet.eun.MemberDAO" alias="MemberDAO"/>
 		<typeAlias type="com.closet.san.BoardDAO" alias="BoardDAO"/>
+
+		<typeAlias type="com.closet.san.BoardDTO" alias="BoardDTO"/>
+
+
 	</typeAliases>
 </configuration>
