@@ -1,8 +1,8 @@
 package com.closet.san;
 
-import java.util.Date;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -11,9 +11,10 @@ public class BoardDTO {
 	
 	private int bdNum;
 	private String bdTitle;
+	
 	private String content;
 	private String writer;
-	private Date regDate;
+	private String regDate;
 	private int viewCount;
 
 }
