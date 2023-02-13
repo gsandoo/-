@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -70,6 +71,7 @@ public class eunController {
 				
 				session.setAttribute("mem_id", dto.getMem_id());
 				session.setAttribute("mem_name", dto.getMem_name());
+				session.setAttribute("mem_nick", dto.getMem_nick());
 			}else {
 				out.println("<script>");
 				out.println("alert(' 비밀번호를 확인해주세요.')");
@@ -92,4 +94,17 @@ public class eunController {
 		
 		return "eun/main";
 	}
+	
+	@RequestMapping("/mypage.do")
+	public String mypage(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		
+		MemberDTO dto = this.dao.getMember((String) session.getAttribute("mem_id"));
+		
+		model.addAttribute("dto", dto);
+		
+		return "eun/myPage";
+	}
+	
+	
 }
