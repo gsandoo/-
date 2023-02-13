@@ -1,25 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<section>
 		<div>
-			<a href="<%=request.getContextPath() %>/join.do">È¸¿ø°¡ÀÔ</a>
-			<a href="<%=request.getContextPath() %>/list.do">°í°´¼¾ÅÍ</a>
+			<a href="<%=request.getContextPath() %>/join.do">íšŒì›ê°€ìž…</a>
+			<a href="<%=request.getContextPath() %>/list.do">ê³ ê°ì„¼í„°</a>
 			<c:if test="${empty mem_nick}" >
-				<a href="<%=request.getContextPath() %>/login.do">·Î±×ÀÎ</a>
+				<a href="<%=request.getContextPath() %>/login.do">ë¡œê·¸ì¸</a>
 			</c:if>
 			<c:if test="${!empty mem_nick}" >
-				<a href="<%=request.getContextPath() %>/logout.do">${mem_nick } ´Ô ·Î±×¾Æ¿ô</a>
+				<a href="<%=request.getContextPath() %>/logout.do">${mem_nick } ë‹˜ ë¡œê·¸ì•„ì›ƒ</a>
 			</c:if>
-			<a href="<%=request.getContextPath() %>/mypage.do">¸¶ÀÌÆäÀÌÁö</a>
+			<a href="<%=request.getContextPath() %>/mypage.do">ë§ˆì´íŽ˜ì´ì§€</a>
 		</div>
 	</section>
 </body>
