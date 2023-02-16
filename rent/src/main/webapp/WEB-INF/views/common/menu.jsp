@@ -18,8 +18,8 @@
 			</c:if>
 			<c:if test="${!empty mem_nick}" >
 				<a href="<%=request.getContextPath() %>/logout.do">${mem_nick } 님 로그아웃</a>
+				<a href="<%=request.getContextPath() %>/mypage.do">마이페이지</a>
 			</c:if>
-			<a href="<%=request.getContextPath() %>/mypage.do">마이페이지</a>
 		</div>
 	</section>
 </body>

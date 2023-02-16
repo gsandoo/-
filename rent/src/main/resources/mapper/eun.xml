@@ -12,4 +12,8 @@
 	<select id="getMember" parameterType="String" resultType="com.closet.eun.MemberDTO">
 		select * from MEMBERLIST where mem_id = #{id}
 	</select>
+	
+	<update id="updateMypage" parameterType="com.closet.eun.MemberDTO">
+		update MEMBERLIST set MEM_NICK = #{mem_nick}, MEM_PWD = #{mem_pwd}, MEM_PHONE = #{mem_phone}, MEM_ADDR = #{mem_addr}
+	</update>
 </mapper>

@@ -18,4 +18,9 @@ public class MemberDAOImpl implements MemberDAO{
 	public MemberDTO getMember(String id) {
 		return this.sqlSession.selectOne("getMember", id);
 	}
+
+	@Override
+	public int updateMypage(MemberDTO dto) {
+		return this.sqlSession.update("updateMypage", dto);
+	}
 }

@@ -53,20 +53,24 @@
 </script>
 </head>
 <body>
-	<table>
+	<c:set var="dto" value="${dto }"/>
+	<c:if test="${!empty dto }"/>
+	
+	<form method="post" action=" <%=request.getContextPath() %>/mypage_form.do">
+		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="mem_id" value="${mem_id }" readonly></td>
+				<td><input type="text" name="mem_id" value="${dto.getMem_id() }" readonly></td>
 			</tr>
 			
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="mem_name"></td>
+				<td><input type="text" name="mem_name" value="${dto.getMem_name() }" readonly></td>
 			</tr>
 			
 			<tr>
 				<th>닉네임</th>
-				<td><input type="text" name="mem_nick"></td>
+				<td><input type="text" name="mem_nick" value="${dto.getMem_nick() }"></td>
 			</tr>
 			
 			<tr>
@@ -76,7 +80,7 @@
 			
 			<tr>
 				<th>핸드폰번호</th>
-				<td><input type="number" name="mem_phone" placeholder="'-'를 제외한 숫자만 입력해주세요."></td>
+				<td><input type="number" name="mem_phone" placeholder="'-'를 제외한 숫자만 입력해주세요." value="${dto.getMem_phone() }" readonly></td>
 			</tr>
 			
 			<tr>
@@ -93,6 +97,6 @@
 				<td><button type="submit">수정</button></td>
 			</tr>
 		</table>
-		
+	</form>
 </body>
 </html>
