@@ -106,5 +106,24 @@ public class eunController {
 		return "eun/myPage";
 	}
 	
-	
+	@RequestMapping("/mypage_form.do")
+	public void mypage_form(MemberDTO dto, HttpServletResponse response, HttpServletRequest request) throws IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		int check = this.dao.updateMypage(dto);
+		
+		if (check > 0) {
+			out.println("<script>");
+			out.println("alert('내 정보가 수정되었습니다.')");
+			out.println("location.href='mypage.do'");
+			out.println("</script>");
+		} else {
+			out.println("<script>");
+			out.println("alert('오류가 발생했습니다.')");
+			out.println("history.back()");
+			out.println("</script>");
+		}
+	}
 }
