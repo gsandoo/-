@@ -55,7 +55,7 @@ public class eunController {
 	public void loginForm(@RequestParam("mem_id") String id, @RequestParam("mem_pwd") String pwd, HttpServletResponse response, HttpServletRequest request) throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		
-		MemberDTO dto = this.dao.getMember(id);
+		MemberDTO dto = this.dao.getMember(id);	
 		
 		PrintWriter out = response.getWriter();
 

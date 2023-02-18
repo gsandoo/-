@@ -12,28 +12,28 @@
 </head>
 <body>
 	<div class ="title">고객센터 게시판 목록</div>
-	<div class = "table" >
-		<div id = "board-menu">
-			<div class="bdnum">번호</div>
-			<div class="writer">작성자</div>
-			<div class="bdtitle">게시글 제목</div>
-			<div class="regDate">게시글 날짜</div>
-			<div class="viewCount">조회수</div>
-		</div>	
+	<table border = "1" >
+		<colgroup>
+			<col width="50">
+			<col width="100" >
+			<col width="300" >
+			<col width="100" >
+			<col width="50" >
+		</colgroup>	
 		<c:forEach items="${list}" var="BoardDTO">
-			<div id = "board-content">
-				<div class="bc-bdnum">${BoardDTO.bdNum}</div>
-				<div class="bc-writer">${BoardDTO.writer}</div>
-				<div class="bc-bdtitle"><a href="one.do?bdNum=${BoardDTO.bdNum}">${BoardDTO.bdTitle}</a></div>
-				<div class="bc-regDate">${BoardDTO.regDate}</div>
-				<div class="bc-viewCount">${BoardDTO.viewCount}</div>
-			</div>
+			<tr>
+				<td>${BoardDTO.bdNum}</td>
+				<td>${BoardDTO.writer}</td>
+				<td><a href="one.do?bdNum=${BoardDTO.bdNum}">${BoardDTO.bdTitle}</a></td>
+				<td>${BoardDTO.regDate}</td>
+				<td>${BoardDTO.viewCount}</td>
+			</tr>
 		</c:forEach>
-		<div id="write">
-			<div class ="write-space">
-				<input class="write-btn" type="button" value="글쓰기" onclick="location.href='insert.do'">
-			</div>
-		</div>
-	</div>
+		<tr>
+			<td colspan="5" align="center">
+				<input type="button" value="글쓰기" onclick="location.href='insert.do'">
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

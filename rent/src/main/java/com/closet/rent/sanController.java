@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +32,9 @@ public class sanController {
 	@RequestMapping("/list.do")
 	public String serviceBoard(Model model) {
 		logger.info("SERVICE PAGE");
+		
+		
+
 		model.addAttribute("list",biz.selectList());
 		
 		return "san/serviceBoard"; // serviceBoard.jsp 로 이동 시켜준다
@@ -38,12 +42,35 @@ public class sanController {
 	
 	// 게시글 누를 시 글 상세 보기
 	@RequestMapping("/one.do")
-	public String one(Model model, int bdNum) {
+	public void one(Model model, int bdNum ,HttpServletResponse response, HttpServletRequest request) throws IOException {
 		logger.info("SELECT ONE");
 		
-		model.addAttribute("dto",biz.selectOne(bdNum));
+		PrintWriter out = response.getWriter();
+
 		
-		return "san/selectOne";
+		HttpSession session = request.getSession();
+		// 세션 값 변수에 받기
+		String name = (String) session.getAttribute("mem_name");
+		System.out.println("DB에서 받은 이름은 : "+name);
+		BoardDTO dto = biz.selectOne(bdNum);
+		System.out.println(dto.getWriter());
+		
+		if(name.equals(dto.getWriter())) {
+		System.out.println("OK");
+		model.addAttribute("dto", dto);
+		
+		out.println("<script>");
+		out.println("alert('Good!')");
+	    out.println("location.href='san/selectOne'"); 
+	    out.println("</script>"); 
+		}else {
+			System.out.println("NOT");
+			out.println("<script>");
+			out.println("alert('no WAY!')");
+		    out.println("location.href='/'"); 
+		    out.println("</script>"); 
+		    
+		}
 	}
 	
 	@RequestMapping("/insert.do")
@@ -75,15 +102,16 @@ public class sanController {
 		
 	}
 
-	// 게시글 수정
+	// 게시글 수정 - 글 제목을 눌렀을 때
 	@RequestMapping("/update.do")
 	public String update(Model model, int bdNum) {
 		
+		
 		logger.info("UPDATE PAGE");
+		BoardDTO dto = biz.selectOne(bdNum);
+		model.addAttribute("dto", dto);
 		
-		model.addAttribute("dto",biz.selectOne(bdNum));
-		
-		return "san/update";
+		return "san/update"; // jsp 이동.
 		
 	}
 	
