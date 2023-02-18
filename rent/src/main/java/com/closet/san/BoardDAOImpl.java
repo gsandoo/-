@@ -20,7 +20,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 
 	@Autowired
-	private SqlSessionTemplate sqlSession; // DAO 메서드와 동일
+	private SqlSessionTemplate sqlSession;
 	
 	@Autowired
 	private BoardBiz biz;

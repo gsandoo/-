@@ -56,7 +56,6 @@
 			WHERE bdNum = #{bdNum}	
     </update>
     
-    
     <delete id="delete" parameterType="int">
     	DELETE 
     		FROM board

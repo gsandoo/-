@@ -1,26 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
 	<form method="post" action="<%=request.getContextPath() %>/login_form.do">
 		<table>
 			<tr>
-				<th>ì•„ì´ë””</th>
+				<th>¾ÆÀÌµğ</th>
 				<td><input type="text" name="mem_id"></td>
 			</tr>
 			
 			<tr>
-				<th>ë¹„ë°€ë²ˆí˜¸</th>
+				<th>ºñ¹Ğ¹øÈ£</th>
 				<td><input type="password" name="mem_pwd"></td>
 			</tr>
 			
 			<tr>
-				<td><button type="submit">ë¡œê·¸ì¸</button></td>
+				<td><button type="submit">·Î±×ÀÎ</button></td>
 			</tr>
 		</table>
 	</form>
