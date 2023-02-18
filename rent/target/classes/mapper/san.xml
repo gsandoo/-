@@ -5,11 +5,8 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="BoardDAO">
-
-
 	<insert id="insert" parameterType="com.closet.san.BoardDTO">
-INSERT INTO board VALUES( 
-
+			INSERT INTO board VALUES( 
 			   (SELECT NVL(MAX(board.bdnum), 0) + 1 FROM board)
                , #{bdTitle}
                , #{content}
@@ -18,7 +15,6 @@ INSERT INTO board VALUES(
                , '0'
                )	
     </insert>
-
     
     
     <resultMap type="BoardDTO" id="BoardMap">
@@ -60,6 +56,12 @@ INSERT INTO board VALUES(
 			WHERE bdNum = #{bdNum}	
     </update>
     
+    <update id="updateVisit" parameterType="BoardDTO">
+    	UPDATE board
+    	SET viewCount = NVL(viewCount,0)+1
+    	WHERE bdNum = #{bdNum}
+    </update>
+    
     <delete id="delete" parameterType="int">
     	DELETE 
     		FROM board
@@ -67,5 +69,4 @@ INSERT INTO board VALUES(
     	
     
     </delete>
-
 </mapper>

@@ -56,6 +56,12 @@
 			WHERE bdNum = #{bdNum}	
     </update>
     
+    <update id="updateVisit" parameterType="BoardDTO">
+    	UPDATE board
+    	SET viewCount = NVL(viewCount,0)+1
+    	WHERE bdNum = #{bdNum}
+    </update>
+    
     <delete id="delete" parameterType="int">
     	DELETE 
     		FROM board

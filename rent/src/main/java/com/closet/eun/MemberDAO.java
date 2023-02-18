@@ -6,4 +6,5 @@ public interface MemberDAO {
 	public MemberDTO getMember(String id);
 	
 	public int updateMypage(MemberDTO dto);
+
 }
