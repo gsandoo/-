@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.closet.eun.MemberDTO;
 import com.closet.rent.sanController;
 
 @Repository
@@ -98,6 +99,21 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		try {
 			res = sqlSession.update(NAMESPACE+ "update",dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return res;
+	}
+
+
+
+	@Override
+	public int updateVisit(int num, BoardDTO dto) {
+		int res= 0;
+		
+		try {
+			res = sqlSession.update(NAMESPACE+ "updateVisit",dto);
 		} catch (Exception e) {
 			e.printStackTrace();
 			

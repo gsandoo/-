@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.closet.eun.MemberDTO;
+
 @Service
 public class BoardBizImpl implements BoardBiz {
 
@@ -42,6 +44,11 @@ public class BoardBizImpl implements BoardBiz {
 	public int delete(int bdNum) {
 		// TODO Auto-generated method stub
 		return dao.delete(bdNum);
+	}
+
+	@Override
+	public int updateVisit(int num, BoardDTO dto) {
+		return dao.updateVisit(num, dto);
 	}
 
 	

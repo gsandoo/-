@@ -55,13 +55,11 @@ public class eunController {
 	@RequestMapping("/login_form.do") // 
 	public void loginForm(@RequestParam("mem_id") String id, @RequestParam("mem_pwd") String pwd, HttpServletResponse response, HttpServletRequest request) throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		
-		MemberDTO dto = this.dao.getMember(id);
-		
+		MemberDTO dto = this.dao.getMember(id); // 여기서 값을 가지고 와서 dto
 		PrintWriter out = response.getWriter();
 
-		if (dto != null) {
-			if (pwd.equals(dto.getMem_pwd())) {
+		if (dto != null) { // 아이디가 db에 존재한다면
+			if (pwd.equals(dto.getMem_pwd())) { // 비번 확인
 				out.println("<script>");
 				out.println("alert('로그인 성공')");
 				out.println("location.href='/'");

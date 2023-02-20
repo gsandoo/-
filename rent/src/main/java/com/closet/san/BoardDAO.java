@@ -2,6 +2,8 @@ package com.closet.san;
 
 import java.util.List;
 
+import com.closet.eun.MemberDTO;
+
 public interface BoardDAO {
 	
 	String NAMESPACE = "BoardDAO.";
@@ -15,5 +17,6 @@ public interface BoardDAO {
 	public BoardDTO selectOne(int bdNum);
 	public int insert(BoardDTO dto);
 	public int update(BoardDTO dto);
+	public int updateVisit(int num, BoardDTO dto);
 	public int delete(int bdNum);
 }
