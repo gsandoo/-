@@ -65,23 +65,13 @@ public class sanController {
 			
 			// 세션값이랑 이름이 같은지 비교
 			if(name.equals(writer)) {
-				out.println("<script>");
-				out.println("alert('작성자가 맞습니다!')");
-				model.addAttribute("dto", dto);
-			    out.println("</script>");
 			    session.setAttribute("writer", dto.getWriter()); // 세션에 값 넣기
 			    return "san/selectOne";
 			}else {
-					out.println("<script>");
-					out.println("alert('작성자가 아닙니다!')");
-					model.addAttribute("dto", dto);
-				    out.println("</script>");
-				    return "san/selectOne";
+					return "san/selectOne";
 				}
 		}else {
 			model.addAttribute("dto", dto);
-			out.println("<script>");
-			out.println("<script>");
 			return "san/selectOne";
 		}
 		
@@ -90,9 +80,11 @@ public class sanController {
 	}
 	
 	@RequestMapping("/insert.do")
-	public String insert() {
+	public String insert(Model model,HttpServletRequest request) {
 		logger.info("INSERT ONE");
-		
+		HttpSession session = request.getSession();
+		String writer = (String) session.getAttribute("mem_name");
+		model.addAttribute("writer", writer );
 		return "san/insert";
 		
 	}

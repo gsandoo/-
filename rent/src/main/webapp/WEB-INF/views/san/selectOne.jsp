@@ -41,7 +41,10 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
-				<input type="button" value="수정" onclick="location.href='update.do?bdNum=${dto.bdNum}'"/>
+				<c:if test="${!empty writer}">
+					<input type="button" value="수정" onclick="location.href='update.do?bdNum=${dto.bdNum}'"/>
+				</c:if>
+				
 				<input type="button" class="del_button" value="삭제" onclick="delete_ok()" />
 				<input type="button" value="목록" onclick="location.href='list.do'"/>
 			</td>
