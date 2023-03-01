@@ -10,17 +10,15 @@
 </head>
 <body>
 	<section>
-		<div>
-			<a href="<%=request.getContextPath() %>/join.do">회원가입</a>
-			<a href="<%=request.getContextPath() %>/list.do">고객센터</a>
-			<c:if test="${empty mem_nick}" >
-				<a href="<%=request.getContextPath() %>/login.do">로그인</a>
-			</c:if>
-			<c:if test="${!empty mem_nick}" >
-				<a href="<%=request.getContextPath() %>/logout.do">${mem_nick } 님 로그아웃</a>
-				<a href="<%=request.getContextPath() %>/mypage.do">마이페이지</a>
-			</c:if>
-		</div>
+		<a href="#">의류</a>
+		<a href="#">셰어링</a>
+		<a href="#">렌탈 안내</a>
+		<c:if test="${empty mem_nick}" >
+			<a href="#">회원가입</a>
+		</c:if>
+		<c:if test="${!empty mem_nick}" >
+			<a href="#">마이페이지</a>
+		</c:if>
 	</section>
 </body>
 </html>
