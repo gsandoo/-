@@ -10,6 +10,7 @@
 </head>
 <body>
 	<section>
+
 		<a href="#">의류</a>
 		<a href="#">셰어링</a>
 		<a href="#">렌탈 안내</a>
@@ -19,6 +20,7 @@
 		<c:if test="${!empty mem_nick}" >
 			<a href="#">마이페이지</a>
 		</c:if>
+
 	</section>
 </body>
 </html>
