@@ -9,18 +9,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<section>
-
-		<a href="#">의류</a>
-		<a href="#">셰어링</a>
-		<a href="#">렌탈 안내</a>
-		<c:if test="${empty mem_nick}" >
-			<a href="#">회원가입</a>
-		</c:if>
-		<c:if test="${!empty mem_nick}" >
-			<a href="#">마이페이지</a>
-		</c:if>
-
+	<section class="menu_navi" id="common_navi">
+		<ul>
+			<li><a href="#">의류</a></li>
+			<li><a href="#">셰어링</a></li>
+			<li><a href="#">렌탈 안내</a></li>
+			<c:if test="${empty mem_nick}" >
+				<li><a href="#">회원가입</a></li>
+			</c:if>
+			<c:if test="${!empty mem_nick}" >
+				<li><a href="#">마이페이지</a></li>
+			</c:if>
+		</ul>
 	</section>
 </body>
 </html>

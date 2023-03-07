@@ -7,10 +7,45 @@
 
 .main_con{
 	margin: auto;
-	width: 70%;
+	width: 1250px;
 }
 
 .main_img{
-	width: 100%;
+	width: 1250px;
 	height: 350px;
+}
+
+.most_cate{
+	text-align: center;
+	padding: 15px 0;
+}
+
+.main_navi > ul{
+	list-style: none;
+}
+
+.main_navi > ul > li{
+	float: left;
+	width: 25%;
+	height: 60px;
+	text-align: center;
+	padding-top: 30px;
+}
+
+#common_navi > ul > li > a{
+	text-decoration: none;
+	color: black;
+}
+
+/* menu.jsp */
+.menu_navi > ul{
+	list-style: none;
+}
+
+.menu_navi > ul > li{
+	float: left;
+	width: 25%;
+	height: 60px;
+	text-align: center;
+	padding-top: 30px;
 }
