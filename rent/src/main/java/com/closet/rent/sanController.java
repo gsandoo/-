@@ -262,28 +262,43 @@ public class sanController {
 	@RequestMapping("tops.do")
 	public String tops(Model model) {
 		logger.info("상의 페이지");
-		model.addAttribute("list", itemsService.selectItemsList());
+		model.addAttribute("list", itemsService.topsList());
 		return "san/tops";
 	}
 	// 하의 이동
 	@RequestMapping("bottoms.do")
-	public String bottoms() {
+	public String bottoms(Model model) {
 		logger.info("하의 페이지");	
+		model.addAttribute("list", itemsService.bottomsList());
 		return "san/bottoms";
 	}
 	// 원피스 이동
 	@RequestMapping("onepiece.do")
-	public String onepiece() {
+	public String onepiece(Model model) {
 		logger.info("원피스 페이지");
+		model.addAttribute("list", itemsService.onepieceList());
 		return "san/onepiece";
 	}
 	// 잡화 이동
 	@RequestMapping("accessories.do")
-	public String acc() {
+	public String acc(Model model) {
 		logger.info("잡화 페이지");
-		return "san/accs";
+		model.addAttribute("list", itemsService.topsList());
+		return "san/tops";
 	}
 	
+	@RequestMapping("high.do")
+	public String priceHigh(Model model, int cate_code) {
+		logger.info("가격 높은 순");
+		model.addAttribute("list", itemsService.priceHigh(cate_code));
+		return "san/tops";	
+	}
+	@RequestMapping("low.do")
+	public String priceLow(Model model, int cate_code) {
+		logger.info("가격 높은 순");
+		model.addAttribute("list", itemsService.priceLow(cate_code));
+		return "san/tops";	
+	}
 	
 //	@RequestMapping("more.do")
 //	public String itemsListGET(Model model, Criteria cri) {

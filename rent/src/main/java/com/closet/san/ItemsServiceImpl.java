@@ -28,16 +28,56 @@ private static final Logger log = LoggerFactory.getLogger(BoardDAOImpl.class);
 
 	
 
+	
 	@Override
-	public List<ItemsDTO> selectItemsList() {
+	public ItemsDTO priceHigh(int cate_code) {
 		// TODO Auto-generated method stub
-		return dao.selectItemsList();
+		return dao.priceHigh(cate_code);
 	}
 
+
+
+	@Override
+	public List<ItemsDTO> bottomsList() {
+		// TODO Auto-generated method stub
+		return dao.bottomsList();
+	}
+
+
+
+	@Override
+	public List<ItemsDTO> onepieceList() {
+		// TODO Auto-generated method stub
+		return dao.onepieceList();
+	}
+
+
+
+	@Override
+	public List<ItemsDTO> accsList() {
+		// TODO Auto-generated method stub
+		return dao.accsList();
+	}
+
+
+	@Override
+	public List<ItemsDTO> topsList() {
+		// TODO Auto-generated method stub
+		return dao.topsList();
+	}
+	
 	/*페이징*/
 	@Override
 	public List<ItemsDTO> getItemsPaging(Criteria cri) {
 		
 		return dao.getItemsPaging(cri);
 	}
+
+
+	@Override
+	public ItemsDTO priceLow(int cate_code) {
+		// TODO Auto-generated method stub
+		return dao.priceLow(cate_code);
+	}
+
 }

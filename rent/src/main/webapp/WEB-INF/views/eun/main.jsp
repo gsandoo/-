@@ -18,10 +18,10 @@
 		
 		<div class="main_navi" id="common_navi">
 			<ul>
-				<li><a href="#">상의</a></li>
-				<li><a href="#">하의</a></li>
-				<li><a href="#">원피스</a></li>
-				<li><a href="#">패션잡화</a></li>
+				<li><a href="tops.do">상의</a></li>
+				<li><a href="bottoms.do">하의</a></li>
+				<li><a href="onepiece.do">원피스</a></li>
+				<li><a href="accessories.do">패션잡화</a></li>
 			</ul>
 		</div>
 

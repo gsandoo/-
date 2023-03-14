@@ -38,7 +38,7 @@
     
     
     
-    <select id="selectItemsList" resultMap="ItemsMap" resultType="com.closet.san.ItemsDTO">
+    <select id="topsList" resultMap="ItemsMap" resultType="com.closet.san.ItemsDTO">
    		 SELECT 
     		items_id,
     		items_name,
@@ -51,6 +51,88 @@
     		cate_code,
     		items_content
     	FROM items
+    	WHERE cate_code = 1
+    	
+    </select>
+    <select id="bottomsList" resultMap="ItemsMap" resultType="com.closet.san.ItemsDTO">
+   		 SELECT 
+    		items_id,
+    		items_name,
+    		items_price,
+    		items_stock,
+    		items_discount,
+    		writer,
+    		sysdate,
+    		sysdate,
+    		cate_code,
+    		items_content
+    	FROM items
+    	WHERE cate_code = 2
+    </select>
+    <select id="onepieceList" resultMap="ItemsMap" resultType="com.closet.san.ItemsDTO">
+   		 SELECT 
+    		items_id,
+    		items_name,
+    		items_price,
+    		items_stock,
+    		items_discount,
+    		writer,
+    		sysdate,
+    		sysdate,
+    		cate_code,
+    		items_content
+    	FROM items
+    	WHERE cate_code = 3
+    </select>
+    <select id="accsList" resultMap="ItemsMap" resultType="com.closet.san.ItemsDTO">
+   		 SELECT 
+    		items_id,
+    		items_name,
+    		items_price,
+    		items_stock,
+    		items_discount,
+    		writer,
+    		sysdate,
+    		sysdate,
+    		cate_code,
+    		items_content
+    	FROM items
+    	WHERE cate_code = 4
+    </select>
+    
+    
+    <!-- 가격 높은 순 INT 는 CATE_CODE 값 -->
+    <select id = "priceHigh" resultType="com.closet.san.ItemsDTO" parameterType="int">
+    	 SELECT 
+    		items_id,
+    		items_name,
+    		items_price,
+    		items_stock,
+    		items_discount,
+    		writer,
+    		sysdate,
+    		sysdate,
+    		cate_code,
+    		items_content
+    	FROM items
+    	WHERE cate_code =${cate_code}
+    	ORDER BY items_price DESC  
+    </select>
+    <select id = "priceLow" resultType="com.closet.san.ItemsDTO" parameterType="int">
+    	 SELECT 
+    		items_id,
+    		items_name,
+    		items_price,
+    		items_stock,
+    		items_discount,
+    		writer,
+    		sysdate,
+    		sysdate,
+    		cate_code,
+    		items_content
+    	FROM items
+    	WHERE cate_code =${cate_code}
+    	ORDER BY items_price ASC
     </select>
     
      <!-- Oracle -->

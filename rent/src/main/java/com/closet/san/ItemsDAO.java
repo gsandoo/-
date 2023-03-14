@@ -9,7 +9,14 @@ public interface ItemsDAO {
 	public int itemsEnroll(ItemsDTO dto);
 	
 	
+	
 	public List<ItemsDTO> getItemsPaging(Criteria cri);
-	public List<ItemsDTO> selectItemsList();
+	public List<ItemsDTO> topsList();
+	public List<ItemsDTO> bottomsList();
+	public List<ItemsDTO> onepieceList();
+	public List<ItemsDTO> accsList();
+
+	public ItemsDTO priceHigh(int cate_code);
+	public ItemsDTO priceLow(int cate_code);
 
 }

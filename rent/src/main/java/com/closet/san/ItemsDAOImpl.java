@@ -46,14 +46,91 @@ public class ItemsDAOImpl implements ItemsDAO {
 	}
 
 	@Override
-	public List<ItemsDTO> selectItemsList() {
+	public List<ItemsDTO> topsList() {
 		
 		log.info("상의 페이지 이동");
 		
 		// TODO Auto-generated method stub
 		List<ItemsDTO> list = new ArrayList<ItemsDTO>();
 		try {
-			list=sqlSession.selectList(NAMESPACE + "selectItemsList"); 
+			list=sqlSession.selectList(NAMESPACE + "topsList"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return list;
+	}
+
+	@Override
+	public List<ItemsDTO> bottomsList() {
+		// TODO Auto-generated method stub
+		log.info("하의 페이지 이동");
+		
+		// TODO Auto-generated method stub
+		List<ItemsDTO> list = new ArrayList<ItemsDTO>();
+		try {
+			list=sqlSession.selectList(NAMESPACE + "bottomsList"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return list;
+	}
+
+	@Override
+	public List<ItemsDTO> onepieceList() {
+		// TODO Auto-generated method stub
+		log.info("원피스 페이지 이동");
+		
+		// TODO Auto-generated method stub
+		List<ItemsDTO> list = new ArrayList<ItemsDTO>();
+		try {
+			list=sqlSession.selectList(NAMESPACE + "onepieceList"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return list;
+	}
+
+	@Override
+	public List<ItemsDTO> accsList() {
+		// TODO Auto-generated method stub
+		log.info("악세서리 페이지 이동");
+		
+		// TODO Auto-generated method stub
+		List<ItemsDTO> list = new ArrayList<ItemsDTO>();
+		try {
+			list=sqlSession.selectList(NAMESPACE + "accsList"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return list;
+	}
+
+	@Override
+	public ItemsDTO priceHigh(int cate_code) {
+		log.info("가격 높은 순");
+		List<ItemsDTO> list = new ArrayList<ItemsDTO>();
+		try {
+			list=sqlSession.selectList(NAMESPACE + "priceHigh" , cate_code); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return (ItemsDTO) list;
+	}
+	
+	
+	@Override
+	public ItemsDTO priceLow(int cate_code) {
+		// TODO Auto-generated method stub
+		log.info("가격 낮은 순");
+		List<ItemsDTO> list = new ArrayList<ItemsDTO>();
+		try {
+			list=sqlSession.selectList(NAMESPACE + "priceLow" , cate_code);
+			System.out.println(list);
 		} catch (Exception e) {
 			e.printStackTrace();
 			// TODO: handle exception

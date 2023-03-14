@@ -12,14 +12,20 @@
 </head>
 <body>
 	<h1>상의 페이지</h1>
-	
+	<c:set var="list" value="${ItemsDTO}"/>
 	<div id="filter">
 		<button class="filter-btn" >필터</button>
-		<div class="filter-visible">
-			<button id="price-high"class="fil-btn">가격 높은 순</button>
-			<button id="price-low" class="fil-btn">가격 낮은 순</button>
-			<button id="view-high" class="fil-btn">조회수 높은 순</button>
-		</div>
+		<form class="filter-visible">
+			<button id="price-high"class="fil-btn" onclick="location.href='high.do?cate_code=${ItemsDTO.cate_code}'">
+				 가격 높은 순	
+			</button>
+			<button id="price-low" class="fil-btn" onclick="location.href='low.do?cate_code=${list.cate_code}'">
+				가격 낮은 순
+			</button>
+			<button id="view-count" class="fil-btn" onclick="location.href='view.do?cate_code=${list.cate_code}'">
+				조회수 높은 순
+			</button>
+		</form>
 	</div>
 		<div class="items-block">
 			<div class="itemsspot">
@@ -66,6 +72,7 @@
 		    $(".filter").css("height", '20%' );
 		    $(".filter-visible").css("visibility", 'visible' );
 		  });
+		  
 		});
 	
 	</script>
