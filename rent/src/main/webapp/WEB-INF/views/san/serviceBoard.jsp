@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/serviceBoard.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/san/serviceBoard.css">
 
 <meta charset="UTF-8">
 <title>고객센터 게시판</title>

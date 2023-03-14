@@ -24,6 +24,7 @@
 				<li><a href="#">패션잡화</a></li>
 			</ul>
 		</div>
+
 	</section>
 	
 </body>

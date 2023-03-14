@@ -95,7 +95,7 @@
 	
 	<script>
 	/* 이미지 업로드 */
-	$("input[type='file']").on("change", function(e){
+	/* $("input[type='file']").on("change", function(e){
 		
 		let formData = new FormData();
 		let fileInput = $('input[name="uploadFile"]');
@@ -110,9 +110,9 @@
 
 		if(!fileCheck(fileObj.name, fileObj.size)){
 			return false;
-		}
+		}*/
 		/*append(key,value)값 - key는 input file 태그의 name 과 일치해야 함*/
-		for(let i = 0; i < fileList.length; i++){
+		/* for(let i = 0; i < fileList.length; i++){
 			formData.append("uploadFile", fileList[i]);
 		}
 		
@@ -132,11 +132,11 @@
 	    		console.log("실패");
 	    	}
 		});	
-	});
+	}); */
 	
 	/*jpg,png 만 허용*/
 	/* var, method related with attachFile */
-	let regex = new RegExp("(.*?)\.(jpg|png)$");
+	/* let regex = new RegExp("(.*?)\.(jpg|png)$"); 
 	let maxSize = 1048576; //1MB	
 	
 	function fileCheck(fileName, fileSize){
@@ -153,8 +153,8 @@
 		
 		return true;		
 		
-	}
-	</script>
+	} */
+	</script> 
 		
 </body>
 </html>

@@ -42,8 +42,6 @@ public class ItemsDTO {
 	/* 상품 설명*/
 	private String items_content;
 
-	/*이미지 정보*/
-	private List<AttachImageDTO> imageList;
 	
 	
 	
