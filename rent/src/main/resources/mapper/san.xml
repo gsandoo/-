@@ -68,7 +68,7 @@
     		WHERE bdNum = #{bdNum}
     </delete>
     
-    <!-- 상품 등록 -->
+  
     
    
 </mapper>

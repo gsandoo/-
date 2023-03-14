@@ -1,5 +1,7 @@
 package com.closet.san;
 
+import java.util.List;
+
 public interface ItemsDAO {
 	String NAMESPACE = "ItemsDAO.";
 
@@ -7,4 +9,7 @@ public interface ItemsDAO {
 	public int itemsEnroll(ItemsDTO dto);
 	
 	
+	public List<ItemsDTO> getItemsPaging(Criteria cri);
+	public List<ItemsDTO> selectItemsList();
+
 }

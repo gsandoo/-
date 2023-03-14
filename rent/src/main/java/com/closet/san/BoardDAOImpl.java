@@ -17,31 +17,39 @@ import com.closet.rent.sanController;
 @Repository
 public class BoardDAOImpl implements BoardDAO {
 	
-	private static final Logger logger = LoggerFactory.getLogger(BoardDAOImpl.class);
+	
 
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	@Autowired
-	private BoardBiz biz;
+	
 
 
 	@Override
 	public List<BoardDTO> selectList() {
-		// TODO Auto-generated method stub
 		List<BoardDTO> list = new ArrayList<BoardDTO>();
 		try {
 			list=sqlSession.selectList(NAMESPACE + "selectList");
 		} catch (Exception e) {
 			e.printStackTrace();
 			// TODO: handle exception
-		}
-		
-		
+		}		
 		return list;
 	}
 
+
+	@Override
+	public BoardDTO selectOne(int bdNum) {
+		BoardDTO dto = null;
+		try {
+			dto = sqlSession.selectOne(NAMESPACE+"selectOne",bdNum);
+		} catch (Exception e) {
+			e.printStackTrace();			
+			// TODO: handle exception
+		}
+		return dto;
+	}
 
 	
 	@Override
@@ -59,22 +67,6 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	
-	
-	
-	
-	@Override
-	public BoardDTO selectOne(int bdNum) {
-		BoardDTO dto = null;
-		try {
-			dto = sqlSession.selectOne(NAMESPACE+"selectOne",bdNum);
-		} catch (Exception e) {
-			e.printStackTrace();			
-			// TODO: handle exception
-		}
-		
-
-		return dto;
-	}
 
 
 	@Override

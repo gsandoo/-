@@ -16,10 +16,10 @@
 		<h1>인기 카테고리</h1>
 		<hr>
 		
-		<a href="#">상의</a>
-		<a href="#">하의</a>
-		<a href="#">원피스</a>
-		<a href="#">악세서리</a>
+		<a href="tops.do">상의</a>
+		<a href="bottoms.do">하의</a>
+		<a href="onepiece.do">원피스</a>
+		<a href="accessories.do">악세서리</a>
 	</section>
 	
 </body>

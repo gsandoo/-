@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+#filter{
+	width: 100%;
+	height: 15%;
+	transition: 0.4;	
+}
+.filter-btn{
+	
+}
+.filter-visible{	
+	visibility: hidden;	
+}
+#price-high{
+	
+}
+#price-low{
+	
+}
+#view-high{
+	
+}
+.fil-btn{
+	
+}
+
+/*아이템 공간*/
+
+.items-block{
+	width: 100%;
+	height: 70%;
+	text-align: center;
+	justify-content: center;
+    align-items: center;
+}
+.itemsspot{
+	width: 100%;
+	height: 30%;
+	margin-bottom: 3%;
+	display: flex;
+}
+.items{
+	display:block;
+	width:33%;
+	height: 100%;
+}

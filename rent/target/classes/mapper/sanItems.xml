@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace ="ItemsDAO">
-<!-- 상품 등록 -->
+	<!-- 상품 등록 -->
     
     <insert id="ItemsEnroll" parameterType="com.closet.san.ItemsDTO">
     	INSERT INTO items VALUES(
@@ -21,4 +21,55 @@
 
     	)
     </insert>
+    
+    
+     <resultMap type="ItemsDTO" id="ItemsMap">
+    	<result property="items_id" column="items_id"/>
+    	<result property="items_name" column="items_name"/>
+    	<result property="items_price" column="items_price"/>
+    	<result property="items_stock" column="items_stock"/>
+    	<result property="items_discount" column="items_discount"/>
+    	<result property="writer" column="writer"/>
+    	<result property="reg_date" column="reg_date"/>
+    	<result property="update_date" column="update_date"/>
+    	<result property="cate_code" column="cate_code"/>  
+    	<result property="items_content" column="items_content"/>  
+    </resultMap>
+    
+    
+    
+    <select id="selectItemsList" resultMap="ItemsMap" resultType="com.closet.san.ItemsDTO">
+   		 SELECT 
+    		items_id,
+    		items_name,
+    		items_price,
+    		items_stock,
+    		items_discount,
+    		writer,
+    		sysdate,
+    		sysdate,
+    		cate_code,
+    		items_content
+    	FROM items
+    </select>
+    
+     <!-- Oracle -->
+    <!-- 게시물 목록(페이징) -->
+    <!-- 게시물 목록(페이징) -->
+    <!-- <![CDATA[ ]]>"는 xml 파일 내의 쿼리 중 부등호가 사용될 때 해당 부등호를 태그로 인식하지 않도록 하기 위해서 사용 -->
+    <select id="getItemsPaging" resultType="com.closet.san.ItemsDTO">
+    
+    <![CDATA[
+        
+        select rn, items_id, items_name, writer, reg_date, update_date, items_content from(
+        
+                select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, items_id, items_name,  writer, reg_date, update_date, items_content
+                  
+                from items where rownum <= #{pageNum} * #{amount}) 
+                
+        where rn > (#{pageNum} -1) * #{amount}
+    
+    ]]>
+    
+    </select>
 </mapper>
