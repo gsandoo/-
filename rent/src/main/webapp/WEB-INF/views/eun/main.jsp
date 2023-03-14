@@ -13,13 +13,18 @@
 		<jsp:include page="../common/menu.jsp"/>
 	
 		<hr>
-		<h1>인기 카테고리</h1>
+		<h1 class="most_cate">인기 카테고리</h1>
 		<hr>
 		
-		<a href="tops.do">상의</a>
-		<a href="bottoms.do">하의</a>
-		<a href="onepiece.do">원피스</a>
-		<a href="accessories.do">악세서리</a>
+		<div class="main_navi" id="common_navi">
+			<ul>
+				<li><a href="#">상의</a></li>
+				<li><a href="#">하의</a></li>
+				<li><a href="#">원피스</a></li>
+				<li><a href="#">패션잡화</a></li>
+			</ul>
+		</div>
+
 	</section>
 	
 </body>
