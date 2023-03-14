@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/eun/eun.css" />
 </head>
 <body>
+	<jsp:include page="../common/loginBtn.jsp"/>
+
 	<section class="main_con">
 		<img class="main_img" alt="" src="<%=request.getContextPath() %>/resources/img/eun/main.jpg">
 		<jsp:include page="../common/menu.jsp"/>
