@@ -262,7 +262,7 @@ public class sanController {
 	@RequestMapping("tops.do")
 	public String tops(Model model) {
 		logger.info("상의 페이지");
-		model.addAttribute("list", itemsService.selectItemsList());
+		
 		return "san/tops";
 	}
 	// 하의 이동
