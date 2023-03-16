@@ -29,9 +29,9 @@ private static final Logger log = LoggerFactory.getLogger(BoardDAOImpl.class);
 	
 
 	@Override
-	public List<ItemsDTO> selectItemsList() {
+	public List<ItemsDTO> selectItemsList(int cate_code) {
 		// TODO Auto-generated method stub
-		return dao.selectItemsList();
+		return dao.selectItemsList(cate_code);
 	}
 
 	/*페이징*/

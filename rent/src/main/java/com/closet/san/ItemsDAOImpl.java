@@ -46,14 +46,14 @@ public class ItemsDAOImpl implements ItemsDAO {
 	}
 
 	@Override
-	public List<ItemsDTO> selectItemsList() {
+	public List<ItemsDTO> selectItemsList(int cate_code) {
 		
-		log.info("상의 페이지 이동");
+		log.info("카테고리 페이지 이동");
 		
 		// TODO Auto-generated method stub
 		List<ItemsDTO> list = new ArrayList<ItemsDTO>();
 		try {
-			list=sqlSession.selectList(NAMESPACE + "selectItemsList"); 
+			list=sqlSession.selectList(NAMESPACE + "selectItemsList",cate_code); 
 		} catch (Exception e) {
 			e.printStackTrace();
 			// TODO: handle exception
