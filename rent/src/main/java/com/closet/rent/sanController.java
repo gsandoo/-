@@ -257,12 +257,14 @@ public class sanController {
 	
 	
 	// 상의 이동
+
 	@RequestMapping("cate.do")
 	public String cate(Model model,@RequestParam("cate_code") int cate_code) {
 		logger.info("카테고리 페이지");
 		
 		List<ItemsDTO> dto =  itemsService.selectItemsList(cate_code);
 		model.addAttribute("list", dto);
+
 		return "san/tops";
 	}
 	
