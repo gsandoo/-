@@ -10,6 +10,6 @@ public interface ItemsDAO {
 	
 	
 	public List<ItemsDTO> getItemsPaging(Criteria cri);
-	public List<ItemsDTO> selectItemsList();
+	public List<ItemsDTO> selectItemsList(int cate_code);
 
 }

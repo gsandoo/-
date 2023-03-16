@@ -38,7 +38,7 @@
     
     
     
-    <select id="selectItemsList" resultMap="ItemsMap" resultType="com.closet.san.ItemsDTO">
+    <select id="selectItemsList" resultMap="ItemsMap" resultType="com.closet.san.ItemsDTO" parameterType="int">
    		 SELECT 
     		items_id,
     		items_name,
@@ -51,6 +51,7 @@
     		cate_code,
     		items_content
     	FROM items
+    	WHERE cate_code=#{cate_code}
     </select>
     
      <!-- Oracle -->

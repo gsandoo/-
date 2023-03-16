@@ -17,7 +17,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,6 +39,7 @@ public class sanController {
 	
 	@Autowired
 	private BoardBiz biz;
+	
 	
 	@Autowired
 	private ItemsService itemsService;
@@ -198,8 +198,6 @@ public class sanController {
 
 	
 	// 상품등록
-	
-	
 	@RequestMapping("/Enroll.do")
 	public String Enroll(Model model , HttpServletRequest request) {
 		logger.info("상품등록 페이지");
@@ -259,31 +257,16 @@ public class sanController {
 	
 	
 	// 상의 이동
-	@RequestMapping("tops.do")
-	public String tops(Model model) {
-		logger.info("상의 페이지");
+
+	@RequestMapping("cate.do")
+	public String cate(Model model,@RequestParam("cate_code") int cate_code) {
+		logger.info("카테고리 페이지");
 		
+		List<ItemsDTO> dto =  itemsService.selectItemsList(cate_code);
+		model.addAttribute("list", dto);
+
 		return "san/tops";
 	}
-	// 하의 이동
-	@RequestMapping("bottoms.do")
-	public String bottoms() {
-		logger.info("하의 페이지");	
-		return "san/bottoms";
-	}
-	// 원피스 이동
-	@RequestMapping("onepiece.do")
-	public String onepiece() {
-		logger.info("원피스 페이지");
-		return "san/onepiece";
-	}
-	// 잡화 이동
-	@RequestMapping("accessories.do")
-	public String acc() {
-		logger.info("잡화 페이지");
-		return "san/accs";
-	}
-	
 	
 //	@RequestMapping("more.do")
 //	public String itemsListGET(Model model, Criteria cri) {

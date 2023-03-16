@@ -9,7 +9,7 @@
 </head>
 <body>
 	<jsp:include page="../common/loginBtn.jsp"/>
-
+	
 	<section class="main_con">
 		<img class="main_img" alt="" src="<%=request.getContextPath() %>/resources/img/eun/main.jpg">
 		<jsp:include page="../common/menu.jsp"/>
@@ -20,10 +20,10 @@
 		
 		<div class="main_navi" id="common_navi">
 			<ul>
-				<li><a href="#">상의</a></li>
-				<li><a href="#">하의</a></li>
-				<li><a href="#">원피스</a></li>
-				<li><a href="#">패션잡화</a></li>
+				<li><a href="cate.do?cate_code=1">상의</a></li>
+				<li><a href="cate.do?cate_code=2">하의</a></li>
+				<li><a href="cate.do?cate_code=3">원피스</a></li>
+				<li><a href="cate.do?cate_code=4">패션잡화</a></li>
 			</ul>
 		</div>
 

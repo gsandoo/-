@@ -16,13 +16,9 @@ import com.closet.san.ItemsService;
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController {
-	@Autowired
-	private ItemsService itemsService;
-	
+public class HomeController {	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		model.addAttribute("list", itemsService.selectItemsList());
 		return "/eun/main";
 	}
 }
