@@ -10,6 +10,8 @@
 </head>
 <body>
 	<section class="menu_navi" id="common_navi">
+		<img class="main_img" alt="" src="<%=request.getContextPath() %>/resources/img/eun/main.jpg">
+		
 		<ul>
 			<li><a href="#">의류</a></li>
 			<li><a href="#">셰어링</a></li>
