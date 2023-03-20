@@ -12,7 +12,7 @@
 	<section class="menu_navi" id="common_navi">
 		<ul>
 			<li><a href="#">의류</a></li>
-			<li><a href="#">셰어링</a></li>
+			<li><a href="share.do">셰어링</a></li>
 			<li><a href="#">렌탈 안내</a></li>
 			<c:if test="${empty mem_nick}" >
 				<li><a href="<%=request.getContextPath() %>/join.do">회원가입</a></li>

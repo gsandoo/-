@@ -1,7 +1,9 @@
 package com.closet.san;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -61,5 +63,8 @@ public class ItemsDAOImpl implements ItemsDAO {
 		return list;
 	}
 	
-
+	@Override
+	public void saveImage(Map<String, Object> hmap) throws SQLException {
+	    sqlSession.insert(NAMESPACE +"saveImage",hmap);
+	}
 }

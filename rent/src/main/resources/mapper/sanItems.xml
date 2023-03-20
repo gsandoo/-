@@ -73,4 +73,36 @@
     ]]>
     
     </select>
+    
+    
+     <!-- 이미지 등록 -->
+    <insert id="saveImage" parameterType="java.util.Map">
+   insert into items(
+    items_id,
+    items_name,
+    items_price,
+    items_stock,
+    items_discount,
+    writer,
+    reg_date,
+    update_date,
+    cate_code,
+    items_content,
+    items_img,
+    sort
+)VALUES(
+    12,
+    "에렌 예거",
+    10000,
+    10,
+    10,
+    "작성자",
+    sysdate,
+    sysdate,
+    2,
+    "신조 사사게오",
+    #{img},
+    "milc"
+) 
+</insert>
 </mapper>
