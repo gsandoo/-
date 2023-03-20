@@ -1,6 +1,8 @@
 package com.closet.san;
 
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public interface ItemsDAO {
 	String NAMESPACE = "ItemsDAO.";
@@ -11,5 +13,5 @@ public interface ItemsDAO {
 	
 	public List<ItemsDTO> getItemsPaging(Criteria cri);
 	public List<ItemsDTO> selectItemsList(int cate_code);
-
+	public void saveImage(Map<String, Object> hmap) throws SQLException;
 }

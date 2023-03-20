@@ -1,6 +1,8 @@
 package com.closet.san;
 
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,4 +42,11 @@ private static final Logger log = LoggerFactory.getLogger(BoardDAOImpl.class);
 		
 		return dao.getItemsPaging(cri);
 	}
+	
+	
+	@Override
+	public void saveImage(Map<String, Object> hmap) throws SQLException {
+	     dao.saveImage(hmap);
+	}
+
 }

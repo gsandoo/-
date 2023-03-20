@@ -42,7 +42,11 @@ public class ItemsDTO {
 	/* 상품 설명*/
 	private String items_content;
 
+	/* 상품 이미지 */
+	private MultipartFile items_img;
 	
+	/* 셰어링, MILC */
+	private String sort;
 	
 	
 }

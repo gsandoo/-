@@ -124,4 +124,10 @@ public class eunController {
 			out.println("</script>");
 		}
 	}
+	@RequestMapping("/share.do")
+	public String share() {
+		
+		return "eun/sharing/info"; //info.jsp 이동
+	}
+	
 }
