@@ -11,4 +11,5 @@ public interface ItemsService {
 	public List<ItemsDTO> selectItemsList(int cate_code);
 	public List<ItemsDTO> getItemsPaging(Criteria cri);
 	public void saveImage(Map<String, Object> hmap) throws SQLException;
+	
 }
