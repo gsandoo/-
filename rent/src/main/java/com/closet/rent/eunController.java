@@ -125,9 +125,27 @@ public class eunController {
 		}
 	}
 	@RequestMapping("/share.do")
-	public String share() {
+	public String share(HttpServletRequest request, Model model) {
 		
-		return "eun/sharing/info"; //info.jsp 이동
+		
+		return "eun/sharing/share"; //info.jsp 이동
 	}
 	
+	@RequestMapping("/gotoinfo.do")
+	public String gotoinfo(HttpServletRequest request,HttpServletResponse response, Model model) throws IOException {
+		HttpSession session = request.getSession();
+		PrintWriter out = response.getWriter();
+		
+		if(session.getAttribute("mem_id")!=null) {
+			MemberDTO dto = this.dao.getMember((String) session.getAttribute("mem_id"));
+			model.addAttribute("dto", dto);
+			return "eun/sharing/gotoinfo"; //info.jsp 이동
+		}else {
+			out.println("<script>");
+			out.println("alert('셰어링 등록을 하려면 로그인 해주세요')");
+			out.println("</script>");
+			return "eun/login";
+		}
+		
+	}
 }

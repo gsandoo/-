@@ -1,11 +1,16 @@
 package com.closet.rent;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Blob;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -268,6 +274,38 @@ public class sanController {
 		return "san/tops";
 	}
 	
+	
+	
+	
+	@RequestMapping("requestupload.do")
+    public String requestupload2(MultipartHttpServletRequest mtfRequest) {
+        List<MultipartFile> fileList = mtfRequest.getFiles("file");
+        String src = mtfRequest.getParameter("src");
+        System.out.println("src value : " + src);
+
+        String path = "C:\\image\\";
+
+        for (MultipartFile mf : fileList) {
+            String originFileName = mf.getOriginalFilename(); // 원본 파일 명
+            long fileSize = mf.getSize(); // 파일 사이즈
+
+            System.out.println("originFileName : " + originFileName);
+            System.out.println("fileSize : " + fileSize);
+
+            String safeFile = path + System.currentTimeMillis() + originFileName;
+            try {
+                mf.transferTo(new File(safeFile));
+            } catch (IllegalStateException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
+        return "eun/main";
+    }
 //	@RequestMapping("more.do")
 //	public String itemsListGET(Model model, Criteria cri) {
 //		logger.info("상품을 보여 드립니다.");
@@ -279,6 +317,10 @@ public class sanController {
 //		
 //		return "san/moreItems";
 //	}
+	
+	
+	
+
 }
 
 
