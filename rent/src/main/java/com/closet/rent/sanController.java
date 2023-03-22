@@ -17,12 +17,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Base64Utils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -262,7 +265,7 @@ public class sanController {
 	
 	
 	
-	// 상의 이동
+	// 카테고리 페이지 이동
 
 	@RequestMapping("cate.do")
 	public String cate(Model model,@RequestParam("cate_code") int cate_code) {
@@ -271,7 +274,7 @@ public class sanController {
 		List<ItemsDTO> dto =  itemsService.selectItemsList(cate_code);
 		model.addAttribute("list", dto);
 
-		return "san/tops";
+		return "san/category";
 	}
 	
 	
@@ -319,9 +322,73 @@ public class sanController {
 //	}
 	
 	
+	 @RequestMapping("saveImage.do")
+	    public String saveImage(@RequestBody Map<String, String> param) {
+	        System.out.println("\n");
+	        System.out.println("=======================================");
+	        System.out.println("[DBApiController] : [saveImage]");
+	        System.out.println("[request keySet] : " + String.valueOf(param.keySet()));
+	        System.out.println("[request idx] : " + String.valueOf(param.get("idx")));
+	        System.out.println("[request idx] : " + String.valueOf(param.get("image")));
+	        System.out.println("=======================================");
+	        System.out.println("\n");
 	
+	        
+	     // DATA URL 을 바이트로 변환 실시
+	        byte imageArray [] = null;
+	        final String BASE_64_PREFIX = "data:image/png;base64,";
+	        try {
+	            String base64Url = String.valueOf(param.get("image"));
+	            if (base64Url.startsWith(BASE_64_PREFIX)){
+	                imageArray =  Base64.getDecoder().decode(base64Url.substring(BASE_64_PREFIX.length()));
+	                System.out.println("\n");
+	                System.out.println("=======================================");
+	                System.out.println("[DBApiController] : [saveImage]");
+	                System.out.println("[imageArray] : " + new String(imageArray));
+	                System.out.println("=======================================");
+	                System.out.println("\n");
+	            }
+	        }
+	        catch (Exception e){
+	            e.printStackTrace();
+	        }
 
-}
+	        
+	     // 모델 객체에 idx 및 byte 지정 실시 [오라클 blob 컬럼은 byte 로 되어있다]
+	        ItemsDTO userImage = new ItemsDTO(param.get("idx"), imageArray);
+	        if (itemsService.saveImage(userImage) > 0) {
+	            System.out.println("\n");
+	            System.out.println("=======================================");
+	            System.out.println("[DBApiController] : [saveImage]");
+	            System.out.println("=======================================");
+	            System.out.println("\n");
+	            JSONObject jsonObject = new JSONObject();
+	            try {
+	                jsonObject.put("state", "T");
+	                jsonObject.put("message", "Success");
+	            } catch (JSONException e) {
+	                e.printStackTrace();
+	            }
+	            return jsonObject.toString(); //정상 삽입 완료 시 상태값 반환
+	        } else {
+	            System.out.println("\n");
+	            System.out.println("=======================================");
+	            System.out.println("[DBApiController] : [saveImage]");
+	            System.out.println("=======================================");
+	            System.out.println("\n");
+	            JSONObject jsonObject = new JSONObject();
+	            try {
+	                jsonObject.put("state", "F");
+	                jsonObject.put("message", "Fail");
+	            } catch (JSONException e) {
+	                e.printStackTrace();
+	            }
+	            return jsonObject.toString(); //정상 삽입 완료 시 상태값 반환
+	        }
+	    }
+
+	 }
+
 
 
 

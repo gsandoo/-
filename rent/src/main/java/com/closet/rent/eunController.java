@@ -128,16 +128,16 @@ public class eunController {
 	public String share(HttpServletRequest request, Model model) {
 		
 		
-		return "eun/sharing/share"; //info.jsp 이동
+		return "eun/sharing/info"; //info.jsp 이동
 	}
 	
 	@RequestMapping("/gotoinfo.do")
 	public String gotoinfo(HttpServletRequest request,HttpServletResponse response, Model model) throws IOException {
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
+		MemberDTO dto = this.dao.getMember((String) session.getAttribute("mem_id"));
 		
-		if(session.getAttribute("mem_id")!=null) {
-			MemberDTO dto = this.dao.getMember((String) session.getAttribute("mem_id"));
+		if(dto != null) {
 			model.addAttribute("dto", dto);
 			return "eun/sharing/gotoinfo"; //info.jsp 이동
 		}else {

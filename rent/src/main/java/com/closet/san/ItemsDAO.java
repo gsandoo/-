@@ -13,5 +13,6 @@ public interface ItemsDAO {
 	
 	public List<ItemsDTO> getItemsPaging(Criteria cri);
 	public List<ItemsDTO> selectItemsList(int cate_code);
-	public void saveImage(Map<String, Object> hmap) throws SQLException;
+	public int saveImage(ItemsDTO dto); 
+
 }
