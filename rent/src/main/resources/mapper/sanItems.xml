@@ -76,7 +76,7 @@
     
     
      <!-- 이미지 등록 -->
-    <insert id="saveImage" parameterType="java.util.Map">
+    <insert id="saveImage" >
    insert into items(
     items_id,
     items_name,
@@ -89,20 +89,22 @@
     cate_code,
     items_content,
     items_img,
-    sort
+    sort,
+    idx
 )VALUES(
     12,
-    "에렌 예거",
-    10000,
-    10,
-    10,
-    "작성자",
+    #{items_name},
+    #{items_price},
+    #{items_stock},
+    #{items_discount},
+    #{writer},
     sysdate,
     sysdate,
-    2,
-    "신조 사사게오",
-    #{img},
-    "milc"
+    #{cate_code},
+    #{items_content},
+    #{items_img},
+    #{sort},
+    #{idx}
 ) 
 </insert>
 </mapper>

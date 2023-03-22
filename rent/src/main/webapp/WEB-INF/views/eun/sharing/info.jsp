@@ -17,7 +17,7 @@
 		
 	</section>
 	
-		<form method="post" action="saveImg.do">
+		<form method="post" action="saveImage.do">
 			<div>상품명</div>
 			<input type="text" name="items_name"/>
 			<div>상품내용</div>
@@ -27,13 +27,16 @@
 			<div>상품수량</div>
 			<input type="text" name="items_name"/>
 			<div>작성자</div>
-			<input type="text" name="writer" value="${dto.getMem_id() }" readonly="readonly"/>
+			<input type="text" name="writer" value="작성자" readonly="readonly"/>
 			<div>상품분류</div>
 			<input type="radio" name="cate_code" value=1/>상의
 			<input type="radio" name="cate_code" value=2/>하의
 			<input type="radio" name="cate_code" value=3/>원피스
 			<input type="radio" name="cate_code" value=4/>악세서리
-			<input type="file"onchange="toBase64(event);" />
+			<input type="checkbox" name="sort" value="milc"/>밀크
+			<input type="checkbox" name="sort" value="share"/>셰어링
+			<input type="file" id ="fileItem" name='uploadFile' style="height: 30px;">
+			<input type="submit" value="제출"/> 
 		</form>
 
 <script type="text/javascript">

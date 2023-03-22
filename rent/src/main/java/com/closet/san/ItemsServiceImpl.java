@@ -42,11 +42,16 @@ private static final Logger log = LoggerFactory.getLogger(BoardDAOImpl.class);
 		
 		return dao.getItemsPaging(cri);
 	}
-	
-	
+
+
+
 	@Override
-	public void saveImage(Map<String, Object> hmap) throws SQLException {
-	     dao.saveImage(hmap);
+	public int saveImage(ItemsDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.saveImage(dto);
 	}
+	
+	
+	
 
 }

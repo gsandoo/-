@@ -62,9 +62,12 @@ public class ItemsDAOImpl implements ItemsDAO {
 		}
 		return list;
 	}
-	
+
 	@Override
-	public void saveImage(Map<String, Object> hmap) throws SQLException {
-	    sqlSession.insert(NAMESPACE +"saveImage",hmap);
+	public int saveImage(ItemsDTO dto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
+	
+	
 }

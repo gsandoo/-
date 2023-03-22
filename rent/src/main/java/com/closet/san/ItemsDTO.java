@@ -43,10 +43,15 @@ public class ItemsDTO {
 	private String items_content;
 
 	/* 상품 이미지 */
-	private MultipartFile items_img;
+	private byte[] items_img;
 	
 	/* 셰어링, MILC */
 	private String sort;
+
+	private String idx;
 	
-	
+	public ItemsDTO(String idx, byte[] items_img) {
+        this.idx = idx;
+        this.items_img = items_img;
+    }
 }
