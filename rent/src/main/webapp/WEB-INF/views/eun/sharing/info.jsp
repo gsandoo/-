@@ -17,7 +17,10 @@
 		
 	</section>
 	
-		<form method="post" action="saveImage.do">
+		<form method="post" action="sharing.do" enctype="multipart/form-data">
+			<div>상품 이미지 업로드</div>
+			
+			<input type="file" name="imgFile" >
 			<div>상품명</div>
 			<input type="text" name="items_name"/>
 			<div>상품내용</div>
@@ -33,9 +36,7 @@
 			<input type="radio" name="cate_code" value=2/>하의
 			<input type="radio" name="cate_code" value=3/>원피스
 			<input type="radio" name="cate_code" value=4/>악세서리
-			<input type="checkbox" name="sort" value="milc"/>밀크
-			<input type="checkbox" name="sort" value="share"/>셰어링
-			<input type="file" id ="fileItem" name='uploadFile' style="height: 30px;">
+
 			<input type="submit" value="제출"/> 
 		</form>
 

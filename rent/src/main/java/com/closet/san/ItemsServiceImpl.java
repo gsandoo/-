@@ -1,5 +1,6 @@
 package com.closet.san;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.log4j.Log4j;
 
@@ -46,9 +48,9 @@ private static final Logger log = LoggerFactory.getLogger(BoardDAOImpl.class);
 
 
 	@Override
-	public int saveImage(ItemsDTO dto) {
+	public int shareItems(ItemsDTO dto, MultipartFile file) throws IllegalStateException, IOException {
 		// TODO Auto-generated method stub
-		return dao.saveImage(dto);
+		return dao.shareItems(dto, file);
 	}
 	
 	
