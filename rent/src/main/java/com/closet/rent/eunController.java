@@ -135,11 +135,10 @@ public class eunController {
 	public String gotoinfo(HttpServletRequest request,HttpServletResponse response, Model model) throws IOException {
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
-		MemberDTO dto = this.dao.getMember((String) session.getAttribute("mem_id"));
-		
-		if(dto != null) {
+		if(session != null) {
+			MemberDTO dto = this.dao.getMember((String) session.getAttribute("mem_id"));
 			model.addAttribute("dto", dto);
-			return "eun/sharing/gotoinfo"; //info.jsp 이동
+			return "eun/sharing/info"; //info.jsp 이동
 		}else {
 			out.println("<script>");
 			out.println("alert('셰어링 등록을 하려면 로그인 해주세요')");

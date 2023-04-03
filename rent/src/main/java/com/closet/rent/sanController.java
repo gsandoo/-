@@ -277,117 +277,16 @@ public class sanController {
 		return "san/category";
 	}
 	
-	
-	
-	
-	@RequestMapping("requestupload.do")
-    public String requestupload2(MultipartHttpServletRequest mtfRequest) {
-        List<MultipartFile> fileList = mtfRequest.getFiles("file");
-        String src = mtfRequest.getParameter("src");
-        System.out.println("src value : " + src);
-
-        String path = "C:\\image\\";
-
-        for (MultipartFile mf : fileList) {
-            String originFileName = mf.getOriginalFilename(); // 원본 파일 명
-            long fileSize = mf.getSize(); // 파일 사이즈
-
-            System.out.println("originFileName : " + originFileName);
-            System.out.println("fileSize : " + fileSize);
-
-            String safeFile = path + System.currentTimeMillis() + originFileName;
-            try {
-                mf.transferTo(new File(safeFile));
-            } catch (IllegalStateException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-
-        return "eun/main";
-    }
-//	@RequestMapping("more.do")
-//	public String itemsListGET(Model model, Criteria cri) {
-//		logger.info("상품을 보여 드립니다.");
-//		
-//		List<ItemsDTO> criteria = itemsService.getItemsPaging(cri);
-//		criteria.forEach(items->logger.info(""+items));
-//		
-//		model.addAttribute("list", criteria );
-//		
-//		return "san/moreItems";
-//	}
-	
-	
-	 @RequestMapping("saveImage.do")
-	    public String saveImage(@RequestBody Map<String, String> param) {
-	        System.out.println("\n");
-	        System.out.println("=======================================");
-	        System.out.println("[DBApiController] : [saveImage]");
-	        System.out.println("[request keySet] : " + String.valueOf(param.keySet()));
-	        System.out.println("[request idx] : " + String.valueOf(param.get("idx")));
-	        System.out.println("[request idx] : " + String.valueOf(param.get("image")));
-	        System.out.println("=======================================");
-	        System.out.println("\n");
-	
-	        
-	     // DATA URL 을 바이트로 변환 실시
-	        byte imageArray [] = null;
-	        final String BASE_64_PREFIX = "data:image/png;base64,";
-	        try {
-	            String base64Url = String.valueOf(param.get("image"));
-	            if (base64Url.startsWith(BASE_64_PREFIX)){
-	                imageArray =  Base64.getDecoder().decode(base64Url.substring(BASE_64_PREFIX.length()));
-	                System.out.println("\n");
-	                System.out.println("=======================================");
-	                System.out.println("[DBApiController] : [saveImage]");
-	                System.out.println("[imageArray] : " + new String(imageArray));
-	                System.out.println("=======================================");
-	                System.out.println("\n");
-	            }
-	        }
-	        catch (Exception e){
-	            e.printStackTrace();
-	        }
-
-	        
-	     // 모델 객체에 idx 및 byte 지정 실시 [오라클 blob 컬럼은 byte 로 되어있다]
-	        ItemsDTO userImage = new ItemsDTO(param.get("idx"), imageArray);
-	        if (itemsService.saveImage(userImage) > 0) {
-	            System.out.println("\n");
-	            System.out.println("=======================================");
-	            System.out.println("[DBApiController] : [saveImage]");
-	            System.out.println("=======================================");
-	            System.out.println("\n");
-	            JSONObject jsonObject = new JSONObject();
-	            try {
-	                jsonObject.put("state", "T");
-	                jsonObject.put("message", "Success");
-	            } catch (JSONException e) {
-	                e.printStackTrace();
-	            }
-	            return jsonObject.toString(); //정상 삽입 완료 시 상태값 반환
-	        } else {
-	            System.out.println("\n");
-	            System.out.println("=======================================");
-	            System.out.println("[DBApiController] : [saveImage]");
-	            System.out.println("=======================================");
-	            System.out.println("\n");
-	            JSONObject jsonObject = new JSONObject();
-	            try {
-	                jsonObject.put("state", "F");
-	                jsonObject.put("message", "Fail");
-	            } catch (JSONException e) {
-	                e.printStackTrace();
-	            }
-	            return jsonObject.toString(); //정상 삽입 완료 시 상태값 반환
-	        }
-	    }
-
-	 }
+	// 셰어링 등록
+	@RequestMapping("sharing.do")
+	public String sharingItems(HttpServletResponse response, ItemsDTO dto , MultipartFile file) throws IOException {
+		itemsService.shareItems(dto, file);
+		PrintWriter out = response.getWriter();
+		out.println("등록 완료");
+		return "eun/main";
+		
+	}
+ }
 
 
 
