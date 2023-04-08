@@ -76,35 +76,29 @@
     
     
      <!-- 이미지 등록 -->
-    <insert id="saveImage" >
-   insert into items(
-    items_id,
-    items_name,
-    items_price,
-    items_stock,
-    items_discount,
-    writer,
-    reg_date,
-    update_date,
-    cate_code,
-    items_content,
-    items_img,
-    sort,
-    idx
-)VALUES(
-    12,
-    #{items_name},
-    #{items_price},
-    #{items_stock},
-    #{items_discount},
-    #{writer},
-    sysdate,
-    sysdate,
-    #{cate_code},
-    #{items_content},
-    #{items_img},
-    #{sort},
-    #{idx}
-) 
-</insert>
+    <insert id="shareItems" parameterType="com.closet.san.ItemsDTO">
+		   insert into items(
+		    items_name,
+		    items_price,
+		    items_stock,
+		    items_discount,
+		    writer,
+		    reg_date,
+		    update_date,
+		    cate_code,
+		    items_content,
+		    path
+		)VALUES(
+		    #{items_name},
+		    #{items_price},
+		    #{items_stock},
+		    #{items_discount},
+		    #{writer},
+		    sysdate,
+		    sysdate,
+		    #{cate_code},
+		    #{items_content},
+		    #{path}
+		) 
+	</insert>
 </mapper>

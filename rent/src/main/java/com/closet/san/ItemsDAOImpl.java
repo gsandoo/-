@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,8 +70,9 @@ public class ItemsDAOImpl implements ItemsDAO {
 	}
 
 	@Override
-	public int shareItems(ItemsDTO dto, MultipartFile imgFile) throws IllegalStateException, IOException {
-		 String oriImgName = imgFile.getOriginalFilename();
+	public int shareItems(ItemsDTO dto, MultipartFile imgFile ) throws IllegalStateException, IOException {
+		
+		String oriImgName = imgFile.getOriginalFilename();
 	        String imgName = "";
 
 	        String projectPath = "C:/milc-img";
@@ -90,6 +93,7 @@ public class ItemsDAOImpl implements ItemsDAO {
 	        dto.setPath("/files/" + imgName);
 	        
 	        // mapper 이어서
+	        sqlSession.insert(NAMESPACE+ "shareItems",dto);
 	        //itemRepository.save(dto);
 		return 0;
 	}
