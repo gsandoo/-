@@ -9,37 +9,47 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
 </head>
 <body>
 	<c:set var="dto" value="${dto }"/>
 
-	<section>
+	<!-- <section>
 		
-	</section>
-	
-		<form method="post" action="sharing.do" enctype="multipart/form-data">
-			<div>상품 이미지 업로드</div>
-			
-			<input type="file" name="imgFile" >
-			<div>상품명</div>
-			<input type="text" name="items_name"/>
-			<div>상품내용</div>
-			<input type="text" name="items_content"/>
-			<div>상품가격</div>
-			<input type="number" name="items_price"/>
-			<div>상품수량</div>
-			<input type="text" name="items_name"/>
-			<div>작성자</div>
-			<input type="text" name="writer" value="작성자" readonly="readonly"/>
-			<div>상품분류</div>
-			<input type="radio" name="cate_code" value=1/>상의
-			<input type="radio" name="cate_code" value=2/>하의
-			<input type="radio" name="cate_code" value=3/>원피스
-			<input type="radio" name="cate_code" value=4/>악세서리
-
-			<input type="submit" value="제출"/> 
-		</form>
-
+	</section> -->
+	<main class="container">
+		<article class="grid">
+			<div>
+				<hgroup>
+		            <h1>MILC</h1>
+		            <h2>A minimalist layout for SHARING pages</h2>
+		          </hgroup>
+				<form method="post" action="sharing.do" enctype="multipart/form-data">
+					<div>상품 이미지 업로드</div>
+					<input type="file" id="file" name="imgFile" />
+					<div>상품명</div>
+					<input type="text" name="items_name"/>
+					<div>상품내용</div>
+					<input type="text" name="items_content"/>
+					<div>상품가격</div>
+					<input type="number" name="items_price"/>
+					<div>상품수량</div>
+					<input type="text" name="items_name"/>
+					<div>작성자</div>
+					<input type="text" name="writer" value="작성자" readonly="readonly"/>
+					<div>상품분류</div>
+					<input type="radio" name="cate_code" value=1/>상의
+					<input type="radio" name="cate_code" value=2/>하의
+					<input type="radio" name="cate_code" value=3/>원피스
+					<input type="radio" name="cate_code" value=4/>악세서리
+						
+					<br/><br/>	
+					
+					<input type="submit" class="contrast" value="제출"/> 
+				</form>
+			</div>
+		</article>
+	</main>	
 <script type="text/javascript">
 	function toBase64(event) {
 		var reader = new FileReader();
