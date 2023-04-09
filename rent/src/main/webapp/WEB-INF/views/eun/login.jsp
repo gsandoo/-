@@ -5,24 +5,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
 </head>
 <body>
-	<form method="post" action="<%=request.getContextPath() %>/login_form.do">
-		<table>
-			<tr>
-				<th>아이디</th>
-				<td><input type="text" name="mem_id"></td>
-			</tr>
-			
-			<tr>
-				<th>비밀번호</th>
-				<td><input type="password" name="mem_pwd"></td>
-			</tr>
-			
-			<tr>
-				<td><button type="submit">로그인</button></td>
-			</tr>
-		</table>
-	</form>
+	<main class="container">
+		<article class="grid">
+			<div>
+				 <hgroup>
+		            <h1>MILC</h1>
+		            <h2>A minimalist layout for Login pages</h2>
+		          </hgroup>
+				<form method="post" action="<%=request.getContextPath() %>/login_form.do">
+					<input
+		              type="text"
+		              name="mem_id"
+		              placeholder="Id"
+		              aria-label="Login"
+		              autocomplete="nickname"
+		              required
+		            />
+		            <input
+		              type="password"
+		              name="mem_pwd"
+		              placeholder="Password"
+		              aria-label="Password"
+		              autocomplete="current-password"
+		              required
+		            />
+		            
+		            <button type="submit" class="contrast">로그인</button>
+				</form>
+			</div>
+		</article>
+	</main>
 </body>
 </html>

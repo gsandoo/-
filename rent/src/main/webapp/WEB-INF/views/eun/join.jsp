@@ -49,51 +49,58 @@
         }).open();
     }
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
 </head>
 <body>
-	<p>회원가입</p>
-	
-	<form method="post" action="<%=request.getContextPath() %>/join_form.do">
-		<table>
-			<tr>
-				<th>아이디</th>
-				<td><input type="text" name="mem_id"></td>
-			</tr>
-			
-			<tr>
-				<th>이름</th>
-				<td><input type="text" name="mem_name"></td>
-			</tr>
-			
-			<tr>
-				<th>닉네임</th>
-				<td><input type="text" name="mem_nick"></td>
-			</tr>
-			
-			<tr>
-				<th>비밀번호</th>
-				<td><input type="text" name="mem_pwd"></td>
-			</tr>
-			
-			<tr>
-				<th>핸드폰번호</th>
-				<td><input type="number" name="mem_phone" placeholder="'-'를 제외한 숫자만 입력해주세요."></td>
-			</tr>
-			
-			<tr>
-				<th>주소</th>
-				<td>
-					<input type="text" id="sample6_postcode" name="mem_addr" placeholder="우편번호">
-					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" id="sample6_address" placeholder="주소"><br>
-					<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-				</td>
-			</tr>
-			
-			<tr>
-				<td><button type="submit">가입하기</button></td>
-			</tr>
-		</table>
-	</form>
+	<main class="container">
+		<article class="grid">
+			<div>
+				 <hgroup>
+		            <h1>MILC</h1>
+		            <h2>A minimalist layout for JOIN pages</h2>
+		          </hgroup>
+					<form method="post" action="<%=request.getContextPath() %>/join_form.do">
+						<table>
+							<tr>
+								<th>아이디</th>
+								<td><input type="text" name="mem_id"></td>
+							</tr>
+							
+							<tr>
+								<th>이름</th>
+								<td><input type="text" name="mem_name"></td>
+							</tr>
+							
+							<tr>
+								<th>닉네임</th>
+								<td><input type="text" name="mem_nick"></td>
+							</tr>
+							
+							<tr>
+								<th>비밀번호</th>
+								<td><input type="text" name="mem_pwd"></td>
+							</tr>
+							
+							<tr>
+								<th>핸드폰번호</th>
+								<td><input type="number" name="mem_phone" placeholder="'-'를 제외한 숫자만 입력해주세요."></td>
+							</tr>
+							
+							<tr>
+								<th>주소</th>
+								<td>
+									<input type="text" id="sample6_postcode" name="mem_addr" placeholder="우편번호">
+									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+									<input type="text" id="sample6_address" placeholder="주소"><br>
+									<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+								</td>
+							</tr>
+							
+						</table>
+								<button type="submit" class="contrast">회원가입</button>
+				</form>
+			</div>
+		</article>
+	</main>
 </body>
 </html>
